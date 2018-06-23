@@ -9,7 +9,7 @@ export default class App extends React.Component {
         <Button
         title="INICIO" 
         onPress={() =>
-          Alert.alert("HE PULSADO EL BOTON")}
+          Alert.alert("marico el que lo lea")}
         />
       </View>
     );
