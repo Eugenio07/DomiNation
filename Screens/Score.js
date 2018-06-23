@@ -4,12 +4,134 @@ import { createStackNavigator,} from 'react-navigation';
 
 
 export default class Score extends React.Component {
+
+  constructor(props) {
+      super(props)
+      this.state = {
+         FirstTeamScore: 0,
+         SecondTeamScore: 0,
+      };
+      this.increase10First = this.increase10First.bind(this);
+      this.increase10Second = this.increase10Second.bind(this);
+
+   }
+
+   increase10First(){
+    
+  }
+
+  increase10Second(){
+    this.setState({SecondTeamScore: this.state.SecondTeamScore +10});
+  }
+
+
   render() {
     const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
-        <Text>Score</Text>
-        <Button
+        <Text>¡Añade los puntos!</Text>
+        <Text>Equipo Numero Uno</Text>
+
+        <View style={styles.rowTeam}>
+          <Text>{this.state.FirstTeamScore}</Text>
+
+          <View style={styles.rowButtons}>
+            <Button style="{ScoreButton}"
+            title="+1" 
+            onPress={() =>
+              {this.setState({FirstTeamScore: this.state.FirstTeamScore + 1})}
+            }
+            />
+
+            <Button style="{ScoreButton}"
+            title="+5" 
+            onPress={() =>
+              {this.setState({FirstTeamScore: this.state.FirstTeamScore + 5})}
+            }
+            />
+            <Button style="{ScoreButton}"
+            title="+10" 
+            onPress={() =>
+              {this.setState({FirstTeamScore: this.state.FirstTeamScore + 10})}
+            }
+            />
+          </View>
+
+          <View style={styles.rowButtons}>
+            <Button style="{ScoreButton}"
+            title="-1" 
+            onPress={() =>
+              {this.setState({FirstTeamScore: this.state.FirstTeamScore - 1})}
+            }
+            />
+
+            <Button style="{ScoreButton}"
+            title="-5" 
+            onPress={() =>
+              {this.setState({FirstTeamScore: this.state.FirstTeamScore - 5})}
+            }
+            />
+            <Button style="{ScoreButton}"
+            title="-10" 
+            onPress={() =>
+              {this.setState({FirstTeamScore: this.state.FirstTeamScore - 10})}
+            }
+            />
+          </View>
+        </View>
+        <Text>Equipo Numero Dos</Text>
+
+        <Text>{this.state.SecondTeamScore}</Text>
+
+        <View>
+          <Button style="{ScoreButton}"
+          title="+1" 
+          onPress={() =>
+            {this.setState({SecondTeamScore: this.state.SecondTeamScore + 1})}
+          }
+          />
+
+          <Button style="{ScoreButton}"
+          title="+5" 
+          onPress={() =>
+            {this.setState({SecondTeamScore: this.state.SecondTeamScore + 5})}
+          }
+          />
+   
+          <Button
+          title="+10" 
+          onPress={() =>
+            {this.setState({SecondTeamScore: this.state.SecondTeamScore + 10})}
+          }
+          />
+        </View>
+
+        <View>
+          <Button style="{ScoreButton}"
+          title="-1" 
+          onPress={() =>
+            {this.setState({SecondTeamScore: this.state.SecondTeamScore - 1})}
+          }
+          />
+
+          <Button style="{ScoreButton}"
+          title="-5" 
+          onPress={() =>
+            {this.setState({SecondTeamScore: this.state.SecondTeamScore - 5})}
+          }
+          />
+   
+          <Button style="{ScoreButton}"
+          title="-10" 
+          onPress={() =>
+            {this.setState({SecondTeamScore: this.state.SecondTeamScore - 10})}
+          }
+          />
+        </View>
+        
+
+        <Button style="{ScoreButton}"
         title="Fin" 
         onPress={() =>
           Alert.alert('Game Over')}
@@ -23,7 +145,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
+
+  rowTeam: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+
+  rowButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'red',
+    justifyContent: 'center',
+  },
+
+  ScoreButton: {
+    width: '50px',
+    height: '50px',
+    backgroundColor: 'black',
+  }
+
 });
