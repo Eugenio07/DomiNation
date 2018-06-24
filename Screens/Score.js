@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert} from 'react-native';
 import { createStackNavigator,} from 'react-navigation';
-
+import TeamName from './Screens/TeamName'
 
 export default class Score extends React.Component {
 
@@ -30,6 +30,7 @@ export default class Score extends React.Component {
 
     return (
       <View style={styles.container}>
+<<<<<<< HEAD
         <Text>¡Añade los puntos!</Text>
         <Text>Equipo Numero Uno</Text>
 
@@ -140,6 +141,11 @@ export default class Score extends React.Component {
         
 
         <Button style={styles.scoreButton}
+=======
+        <Text>Score</Text>
+
+        <Button
+>>>>>>> 9995ad89b7d5801d66c7af8157625dc07dd886f7
         title="Fin" 
         onPress={() =>
           Alert.alert('Game Over')}
