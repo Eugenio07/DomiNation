@@ -11,19 +11,8 @@ export default class Score extends React.Component {
          FirstTeamScore: 0,
          SecondTeamScore: 0,
       };
-      this.increase10First = this.increase10First.bind(this);
-      this.increase10Second = this.increase10Second.bind(this);
 
    }
-
-   increase10First(){
-    
-  }
-
-  increase10Second(){
-    this.setState({SecondTeamScore: this.state.SecondTeamScore +10});
-  }
-
 
   render() {
     const { navigate } = this.props.navigation;
@@ -57,6 +46,12 @@ export default class Score extends React.Component {
               title="+10" 
               onPress={() =>
                 {this.setState({FirstTeamScore: this.state.FirstTeamScore + 10})}
+              }
+              />
+              <Button
+              title="Hacer 0" 
+              onPress={() =>
+                {this.setState({FirstTeamScore: 0})}
               }
               />
             </View>
@@ -111,6 +106,12 @@ export default class Score extends React.Component {
                 {this.setState({SecondTeamScore: this.state.SecondTeamScore + 10})}
               }
               />
+              <Button
+              title="Hacer 0" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: 0})}
+              }
+              />
             </View>
 
             <View style={styles.rowButtons}>
@@ -140,8 +141,18 @@ export default class Score extends React.Component {
         
         <Button
         title="Fin" 
-        onPress={() =>
-          Alert.alert('Game Over')}
+        onPress={() => {
+
+          if (this.state.FirstTeamScore > this.state.SecondTeamScore){
+            navigate('GameOver',{winner: this.props.navigation.state.params.name1 })
+          }
+          else if (this.state.FirstTeamScore < this.state.SecondTeamScore){
+            navigate('GameOver',{winner: this.props.navigation.state.params.name2 })
+          }
+          else{
+            navigate('GameOver',{winner: 'Empate' })
+          }
+        } }
         />
       </View>
     );
