@@ -35,103 +35,111 @@ export default class Score extends React.Component {
 
         <View style={styles.rowTeam}>
           <Text>{this.state.FirstTeamScore}</Text>
+          <View>
+            <View style={styles.rowButtons}>
+              <Button style={styles.scoreButton}
+              title="+1"
+              onPress={() =>
+                {this.setState({FirstTeamScore: this.state.FirstTeamScore + 1})}
+              }
+              />
 
-          <View style={styles.rowButtons}>
-            <Button style="{ScoreButton}"
-            title="+1" 
-            onPress={() =>
-              {this.setState({FirstTeamScore: this.state.FirstTeamScore + 1})}
-            }
-            />
+              <Button style={styles.scoreButton}
+              title="+5" 
+              color='black'
+              backgroundColor='black'
+              width='500px'
+              onPress={() =>
+                {this.setState({FirstTeamScore: this.state.FirstTeamScore + 5})}
+              }
+              />
+              <Button style={styles.scoreButton}
+              title="+10" 
+              onPress={() =>
+                {this.setState({FirstTeamScore: this.state.FirstTeamScore + 10})}
+              }
+              />
+            </View>
 
-            <Button style="{ScoreButton}"
-            title="+5" 
-            onPress={() =>
-              {this.setState({FirstTeamScore: this.state.FirstTeamScore + 5})}
-            }
-            />
-            <Button style="{ScoreButton}"
-            title="+10" 
-            onPress={() =>
-              {this.setState({FirstTeamScore: this.state.FirstTeamScore + 10})}
-            }
-            />
-          </View>
 
-          <View style={styles.rowButtons}>
-            <Button style="{ScoreButton}"
-            title="-1" 
-            onPress={() =>
-              {this.setState({FirstTeamScore: this.state.FirstTeamScore - 1})}
-            }
-            />
+            <View style={styles.rowButtons}>
+              <Button style={styles.scoreButton}
+              title="-1" 
+              onPress={() =>
+                {this.setState({FirstTeamScore: this.state.FirstTeamScore - 1})}
+              }
+              />
 
-            <Button style="{ScoreButton}"
-            title="-5" 
-            onPress={() =>
-              {this.setState({FirstTeamScore: this.state.FirstTeamScore - 5})}
-            }
-            />
-            <Button style="{ScoreButton}"
-            title="-10" 
-            onPress={() =>
-              {this.setState({FirstTeamScore: this.state.FirstTeamScore - 10})}
-            }
-            />
-          </View>
+              <Button style={styles.scoreButton}
+              title="-5" 
+              onPress={() =>
+                {this.setState({FirstTeamScore: this.state.FirstTeamScore - 5})}
+              }
+              />
+              <Button style={styles.scoreButton}
+              title="-10" 
+              onPress={() =>
+                {this.setState({FirstTeamScore: this.state.FirstTeamScore - 10})}
+              }
+              />
+            </View>
+          </View> 
         </View>
         <Text>Equipo Numero Dos</Text>
 
-        <Text>{this.state.SecondTeamScore}</Text>
+        <View style={styles.rowTeam}>
+          <Text>{this.state.SecondTeamScore}</Text>
+          <View>
+            <View style={styles.rowButtons}>
+              <Button style={styles.scoreButton}
+              title="+1" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: this.state.SecondTeamScore + 1})}
+              }
+              />
 
-        <View>
-          <Button style="{ScoreButton}"
-          title="+1" 
-          onPress={() =>
-            {this.setState({SecondTeamScore: this.state.SecondTeamScore + 1})}
-          }
-          />
+              <Button style={styles.scoreButton}
+              title="+5" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: this.state.SecondTeamScore + 5})}
+              }
+              />
+       
+              <Button
+              title="+10" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: this.state.SecondTeamScore + 10})}
+              }
+              />
+            </View>
 
-          <Button style="{ScoreButton}"
-          title="+5" 
-          onPress={() =>
-            {this.setState({SecondTeamScore: this.state.SecondTeamScore + 5})}
-          }
-          />
-   
-          <Button
-          title="+10" 
-          onPress={() =>
-            {this.setState({SecondTeamScore: this.state.SecondTeamScore + 10})}
-          }
-          />
-        </View>
+            <View style={styles.rowButtons}>
+              <Button style={styles.scoreButton}
+              title="-1" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: this.state.SecondTeamScore - 1})}
+              }
+              />
 
-        <View>
-          <Button style="{ScoreButton}"
-          title="-1" 
-          onPress={() =>
-            {this.setState({SecondTeamScore: this.state.SecondTeamScore - 1})}
-          }
-          />
-
-          <Button style="{ScoreButton}"
-          title="-5" 
-          onPress={() =>
-            {this.setState({SecondTeamScore: this.state.SecondTeamScore - 5})}
-          }
-          />
-   
-          <Button style="{ScoreButton}"
-          title="-10" 
-          onPress={() =>
-            {this.setState({SecondTeamScore: this.state.SecondTeamScore - 10})}
-          }
-          />
+              <Button style={styles.scoreButton}
+              title="-5" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: this.state.SecondTeamScore - 5})}
+              }
+              />
+       
+              <Button style={styles.scoreButton}
+              title="-10" 
+              onPress={() =>
+                {this.setState({SecondTeamScore: this.state.SecondTeamScore - 10})}
+              }
+              />
+            </View>
+          </View>
         </View>
         
 
-        <Button style="{ScoreButton}"
+        <Button style={styles.scoreButton}
         title="Fin" 
         onPress={() =>
           Alert.alert('Game Over')}
@@ -149,8 +157,12 @@ const styles = StyleSheet.create({
   },
 
   rowTeam: {
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: 'yellow',
+    width: 200,
     justifyContent: 'center',
+    height: 50,
   },
 
   rowButtons: {
@@ -158,12 +170,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'red',
     justifyContent: 'center',
+
+
+
   },
 
-  ScoreButton: {
-    width: '50px',
-    height: '50px',
-    backgroundColor: 'black',
-  }
+
 
 });
