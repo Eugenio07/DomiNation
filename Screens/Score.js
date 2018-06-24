@@ -30,7 +30,6 @@ export default class Score extends React.Component {
 
     return (
       <View style={styles.container}>
-<<<<<<< HEAD
         <Text>¡Añade los puntos!</Text>
         <Text>Equipo Numero Uno</Text>
 
@@ -145,7 +144,6 @@ export default class Score extends React.Component {
         <Text>Score</Text>
 
         <Button
->>>>>>> 9995ad89b7d5801d66c7af8157625dc07dd886f7
         title="Fin" 
         onPress={() =>
           Alert.alert('Game Over')}
