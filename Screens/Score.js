@@ -19,11 +19,11 @@ export default class Score extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text>¡Añade los puntos!</Text>
+        <Text style={styles.title}>¡Añade los puntos!</Text>
         <Text>{this.props.navigation.state.params.name1}</Text>
 
         <View style={styles.rowTeam}>
-          <Text>{this.state.FirstTeamScore}</Text>
+          <View style={styles.scoreBox}><Text style={styles.scoreText}>{this.state.FirstTeamScore}</Text></View>
           <View>
             <View style={styles.rowButtons}>
               <Button style={styles.scoreButton}
@@ -38,6 +38,7 @@ export default class Score extends React.Component {
               color='black'
               backgroundColor='black'
               width='500px'
+              height='80'
               onPress={() =>
                 {this.setState({FirstTeamScore: this.state.FirstTeamScore + 5})}
               }
@@ -83,7 +84,7 @@ export default class Score extends React.Component {
         <Text>{this.props.navigation.state.params.name2}</Text>
 
         <View style={styles.rowTeam}>
-          <Text>{this.state.SecondTeamScore}</Text>
+          <Text style={styles.scoreText}>{this.state.SecondTeamScore}</Text>
           <View>
             <View style={styles.rowButtons}>
               <Button style={styles.scoreButton}
@@ -139,8 +140,10 @@ export default class Score extends React.Component {
           </View>
         </View>
         
+        <View style={styles.buttonEnd}>
         <Button
         title="Fin" 
+        containerStyle={styles.buttonEnd}
         onPress={() => {
 
           if (this.state.FirstTeamScore > this.state.SecondTeamScore){
@@ -154,6 +157,7 @@ export default class Score extends React.Component {
           }
         } }
         />
+        </View>
       </View>
     );
   }
@@ -162,29 +166,52 @@ export default class Score extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
+    //justifyContent: 'center',
+    alignItems: 'center'
   },
 
   rowTeam: {
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: 'yellow',
-    width: 200,
     justifyContent: 'center',
-    height: 50,
+    height: 100,
+    alignItems: 'center',
+    marginTop: 40,
   },
 
   rowButtons: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'red',
     justifyContent: 'center',
+    marginLeft: 30,
 
 
 
   },
 
+  scoreButton: {
+    backgroundColor:'green',
+    height: 50,
+  },
 
+  title: {
+    fontSize: 30,
+  },
+  scoreBox: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  scoreText: {
+    fontSize: 22,
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  buttonEnd: {
+    marginTop: 30,
+   backgroundColor: 'green',
+  }
 
 });
