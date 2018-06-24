@@ -31,7 +31,7 @@ export default class Score extends React.Component {
     return (
       <View style={styles.container}>
         <Text>¡Añade los puntos!</Text>
-        <Text>Equipo Numero Uno</Text>
+        <Text>{this.props.navigation.state.params.name1}</Text>
 
         <View style={styles.rowTeam}>
           <Text>{this.state.FirstTeamScore}</Text>
@@ -85,7 +85,7 @@ export default class Score extends React.Component {
             </View>
           </View> 
         </View>
-        <Text>Equipo Numero Dos</Text>
+        <Text>{this.props.navigation.state.params.name2}</Text>
 
         <View style={styles.rowTeam}>
           <Text>{this.state.SecondTeamScore}</Text>

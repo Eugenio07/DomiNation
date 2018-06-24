@@ -34,7 +34,7 @@ export default class TeamName extends React.Component {
         <Button
          title="EMPEZAR" 
          onPress={() =>
-         navigate('Score')}
+         navigate('Score',{name1 : this.state.name1, name2: this.state.name2})}
         />
       </View>
     );
