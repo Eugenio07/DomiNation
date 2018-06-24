@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert} from 'react-native';
 import { createStackNavigator,} from 'react-navigation';
-
+import TeamName from './Screens/TeamName'
 
 export default class Score extends React.Component {
   render() {
@@ -9,6 +9,7 @@ export default class Score extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Score</Text>
+
         <Button
         title="Fin" 
         onPress={() =>
